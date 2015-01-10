@@ -13,7 +13,7 @@ if (!file.exists("household_power_consumption.txt")) {
 }
 
 # read and subset data, if not already loaded
-if (exists("subset")) {
+if (!exists("subset")) {
   full <- read.table("household_power_consumption.txt", header = TRUE, stringsAsFactors = FALSE, na.strings=c("?"), sep=';')
   subset <- full[full$Date %in% c('1/2/2007','2/2/2007'),]
   rm(full)
